@@ -1,4 +1,5 @@
 import React from "react";
+import WithAuth from "./withAuth";
 
 class Auth extends React.Component {
   constructor(props) {
@@ -54,8 +55,10 @@ const secretLikes = ["Pizza prosciutto e panna", "U Fleků", "Caffee macchiato"]
 
 const Liked = props => <h3>I kind of really liked {props.data}</h3>;
 
+const LikedWithAuth = WithAuth(Liked);
+
 const likesElements = () => {
-  return <Auth collection={secretLikes} component={Liked} />;
+  return <Auth collection={secretLikes} component={LikedWithAuth} />;
 };
 
 export default likesElements;
